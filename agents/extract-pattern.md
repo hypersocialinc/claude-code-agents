@@ -31,9 +31,11 @@ gh repo list {org} --limit 50 --json name
 
 ```bash
 gh search code "{keyword}" --repo {org}/{repo}
-gh api repos/{org}/{repo}/git/trees/main?recursive=1  # list files
+gh api repos/{org}/{repo}/git/trees/main?recursive=1  # list files (try HEAD if main fails)
 gh api repos/{org}/{repo}/contents/{path}  # fetch content (base64)
 ```
+
+If the default branch isn't `main`, try `master` or fetch the default branch name first.
 
 ### 4. Decode base64 content
 
